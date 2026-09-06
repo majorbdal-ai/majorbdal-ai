@@ -1,52 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300">
   <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05070A"/>
+      <stop offset="0.5" stop-color="#0A0F1E"/>
+      <stop offset="1" stop-color="#05070A"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#00FFFF"/>
+      <stop offset="0.5" stop-color="#FF10F0"/>
+      <stop offset="1" stop-color="#FFE600"/>
+      <animate attributeName="x1" values="0;1;0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;0;1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="subGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFE600"/>
       <stop offset="1" stop-color="#FF10F0"/>
     </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="glowY" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glowY" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00FFFF" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#00FFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbP" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF10F0" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#FF10F0" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <rect width="900" height="300" fill="#05070A"/>
+  <rect width="1000" height="300" fill="url(#bg)"/>
 
   <!-- Neon grid -->
-  <g stroke="#00FFFF" stroke-opacity="0.08" stroke-width="1">
-    <path d="M0 60 H900 M0 120 H900 M0 180 H900 M0 240 H900"/>
-    <path d="M75 0 V300 M150 0 V300 M225 0 V300 M300 0 V300 M375 0 V300 M450 0 V300 M525 0 V300 M600 0 V300 M675 0 V300 M750 0 V300 M825 0 V300"/>
+  <g stroke="#00FFFF" stroke-opacity="0.07">
+    <path d="M0 60 H1000 M0 120 H1000 M0 180 H1000 M0 240 H1000"/>
+    <path d="M80 0 V300 M160 0 V300 M240 0 V300 M320 0 V300 M400 0 V300 M480 0 V300 M560 0 V300 M640 0 V300 M720 0 V300 M800 0 V300 M880 0 V300 M960 0 V300"/>
   </g>
 
-  <!-- Ambient glow orbs -->
-  <circle cx="120" cy="80" r="70" fill="#00FFFF" opacity="0.07"/>
-  <circle cx="780" cy="220" r="90" fill="#FF10F0" opacity="0.08"/>
-  <circle cx="450" cy="150" r="120" fill="#FFE600" opacity="0.04"/>
+  <!-- Pulsing orbs -->
+  <circle cx="140" cy="70" r="80" fill="url(#orb)">
+    <animate attributeName="r" values="60;110;60" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="870" cy="235" r="95" fill="url(#orbP)">
+    <animate attributeName="r" values="70;120;70" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="7s" repeatCount="indefinite"/>
+  </circle>
 
-  <!-- Decorative arrows -->
-  <polygon points="60,252 82,252 71,236" fill="#00FFFF" opacity="0.55"/>
-  <polygon points="840,58 818,58 829,74" fill="#FF10F0" opacity="0.55"/>
+  <!-- Floating particles -->
+  <g fill="#00FFFF">
+    <circle cx="90" cy="90" r="2.5"><animate attributeName="cy" values="90;35;90" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0.15;0.9" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="210" cy="200" r="2"><animate attributeName="cy" values="200;150;200" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0.1;0.7" dur="5s" repeatCount="indefinite"/></circle>
+    <circle cx="790" cy="60" r="2.5"><animate attributeName="cy" values="60;15;60" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0.15;0.9" dur="4.5s" repeatCount="indefinite"/></circle>
+    <circle cx="910" cy="160" r="2"><animate attributeName="cy" values="160;110;160" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0.1;0.7" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="640" cy="230" r="2"><animate attributeName="cy" values="230;185;230" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.12;0.8" dur="5.5s" repeatCount="indefinite"/></circle>
+    <circle cx="350" cy="70" r="2"><animate attributeName="cy" values="70;25;70" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.75;0.1;0.75" dur="5s" repeatCount="indefinite"/></circle>
+  </g>
 
-  <!-- Main title -->
-  <text x="450" y="138" font-family="Arial Black, Arial, sans-serif" font-size="62" font-weight="900"
-        fill="url(#g1)" text-anchor="middle" letter-spacing="8" filter="url(#glow)">MAJORBDAL AI</text>
+  <!-- Scanline sweep -->
+  <rect x="-160" y="0" width="160" height="300" fill="#00FFFF" opacity="0.05">
+    <animate attributeName="x" values="-160;1000" dur="7s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="-160" y="0" width="6" height="300" fill="#00FFFF" opacity="0.25">
+    <animate attributeName="x" values="-160;1000" dur="7s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Corner brackets -->
+  <path d="M28 40 H78 M28 40 V90" fill="none" stroke="#00FFFF" stroke-width="2" stroke-opacity="0.8"/>
+  <path d="M972 260 H922 M972 260 V210" fill="none" stroke="#FF10F0" stroke-width="2" stroke-opacity="0.8"/>
+
+  <!-- Title -->
+  <text x="500" y="146" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"
+        fill="url(#titleGrad)" text-anchor="middle" letter-spacing="10" filter="url(#glow)">MAJORBDAL AI</text>
 
   <!-- Subtitle -->
-  <text x="450" y="184" font-family="Verdana, Arial, sans-serif" font-size="16" font-weight="bold"
-        fill="#FFE600" text-anchor="middle" letter-spacing="9" filter="url(#glowY)">GAME DEVELOPER  ·  ARCADE HUB  ·  NEWS PLATFORM</text>
+  <text x="500" y="192" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="bold"
+        fill="url(#subGrad)" text-anchor="middle" letter-spacing="8" filter="url(#glowY)">GAME DEVELOPER · ARCADE HUB · NEWS PLATFORM</text>
 
-  <!-- Coin slot pill -->
-  <rect x="330" y="248" width="240" height="28" rx="14" fill="#00FFFF" opacity="0.14" stroke="#00FFFF" stroke-opacity="0.55"/>
-  <text x="450" y="267" font-family="Verdana, Arial, sans-serif" font-size="13" font-weight="bold"
-        fill="#00FFFF" text-anchor="middle" letter-spacing="4">▸ INSERT COIN TO PLAY ◂</text>
+  <!-- Coin pill -->
+  <rect x="348" y="246" width="304" height="30" rx="15" fill="none" stroke="#00FFFF" stroke-opacity="0.6" stroke-width="1.5"/>
+  <rect x="348" y="246" width="304" height="30" rx="15" fill="#00FFFF" opacity="0.10">
+    <animate attributeName="opacity" values="0.06;0.18;0.06" dur="2.6s" repeatCount="indefinite"/>
+  </rect>
+  <text x="500" y="266" font-family="Verdana, Arial, sans-serif" font-size="13" font-weight="bold"
+        fill="#00FFFF" text-anchor="middle" letter-spacing="5">▸ INSERT COIN · PRESS START ◂</text>
 </svg>
