@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00FFFF"/>
+      <stop offset="1" stop-color="#FF10F0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowY" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="#05070A"/>
+
+  <!-- Neon grid -->
+  <g stroke="#00FFFF" stroke-opacity="0.08" stroke-width="1">
+    <path d="M0 60 H900 M0 120 H900 M0 180 H900 M0 240 H900"/>
+    <path d="M75 0 V300 M150 0 V300 M225 0 V300 M300 0 V300 M375 0 V300 M450 0 V300 M525 0 V300 M600 0 V300 M675 0 V300 M750 0 V300 M825 0 V300"/>
+  </g>
+
+  <!-- Ambient glow orbs -->
+  <circle cx="120" cy="80" r="70" fill="#00FFFF" opacity="0.07"/>
+  <circle cx="780" cy="220" r="90" fill="#FF10F0" opacity="0.08"/>
+  <circle cx="450" cy="150" r="120" fill="#FFE600" opacity="0.04"/>
+
+  <!-- Decorative arrows -->
+  <polygon points="60,252 82,252 71,236" fill="#00FFFF" opacity="0.55"/>
+  <polygon points="840,58 818,58 829,74" fill="#FF10F0" opacity="0.55"/>
+
+  <!-- Main title -->
+  <text x="450" y="138" font-family="Arial Black, Arial, sans-serif" font-size="62" font-weight="900"
+        fill="url(#g1)" text-anchor="middle" letter-spacing="8" filter="url(#glow)">MAJORBDAL AI</text>
+
+  <!-- Subtitle -->
+  <text x="450" y="184" font-family="Verdana, Arial, sans-serif" font-size="16" font-weight="bold"
+        fill="#FFE600" text-anchor="middle" letter-spacing="9" filter="url(#glowY)">GAME DEVELOPER  ·  ARCADE HUB  ·  NEWS PLATFORM</text>
+
+  <!-- Coin slot pill -->
+  <rect x="330" y="248" width="240" height="28" rx="14" fill="#00FFFF" opacity="0.14" stroke="#00FFFF" stroke-opacity="0.55"/>
+  <text x="450" y="267" font-family="Verdana, Arial, sans-serif" font-size="13" font-weight="bold"
+        fill="#00FFFF" text-anchor="middle" letter-spacing="4">▸ INSERT COIN TO PLAY ◂</text>
+</svg>
